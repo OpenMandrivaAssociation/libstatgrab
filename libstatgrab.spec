@@ -1,5 +1,5 @@
 %define name libstatgrab
-%define version 0.14
+%define version 0.15
 %define release %mkrel 1
 
 %define shortname statgrab
@@ -10,7 +10,7 @@ Summary: Make system statistics
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://freshmeat.net/redir/libstatgrab/39879/url_tgz/%{name}-%{version}.tar.bz2
+Source0: http://freshmeat.net/redir/libstatgrab/39879/url_tgz/%{name}-%{version}.tar.gz
 Patch0: %{name}.nochmod.patch
 License: GPL
 Group: Monitoring
