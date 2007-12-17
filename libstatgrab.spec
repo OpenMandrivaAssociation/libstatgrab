@@ -15,7 +15,6 @@ Patch0: %{name}.nochmod.patch
 License: GPL
 Group: Monitoring
 Url: http://www.i-scream.org/libstatgrab/
-BuildRoot: %{_tmppath}/%{name}-buildroot
 
 %description
 Libstatgrab is a library that provides cross platform access to statistics
