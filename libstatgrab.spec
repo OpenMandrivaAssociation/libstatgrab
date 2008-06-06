@@ -1,10 +1,11 @@
 %define name libstatgrab
-%define version 0.15
+%define version 0.16
 %define release %mkrel 1
 
 %define shortname statgrab
 %define major 6
 %define libname %mklibname %shortname %major
+%define libnamedevel %mklibname %shortname-devel
 
 Summary: Make system statistics
 Name: %{name}
@@ -80,13 +81,13 @@ to people writing scripts or anything else that can't easily make C
 function calls. Included with statgrab is a script to generate an MRTG
 configuration file to use statgrab. 
 
-%package -n %libname-devel
+%package -n %libnamedevel
 Summary: The development files from %name libraries
 Group: Development/Other
 Provides: %name-devel = %version-%release
 Requires: %libname = %version
 
-%description -n %libname-devel
+%description -n %libnamedevel
 Libstatgrab is a library that provides cross platform access to statistics
 about the system on which it's run. It's written in C and presents a selection
 of useful interfaces which can be used to access key system statistics. The
@@ -134,7 +135,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS INSTALL README ChangeLog NEWS
 %_libdir/*.so.%{major}*
 
-%files -n %libname-devel
+%files -n %libnamedevel
 %defattr(-,root,root)
 %doc AUTHORS INSTALL README ChangeLog NEWS
 %_libdir/*.so
