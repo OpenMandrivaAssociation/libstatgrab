@@ -1,6 +1,6 @@
 %define name libstatgrab
 %define version 0.16
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define shortname statgrab
 %define major 6
