@@ -1,19 +1,19 @@
 %define name libstatgrab
-%define version 0.16
-%define release %mkrel 3
+%define version 0.17
+%define release %mkrel 1
 
 %define shortname statgrab
 %define major 6
 %define libname %mklibname %shortname %major
-%define libnamedevel %mklibname %shortname-devel
+%define libnamedevel %mklibname -d %shortname
 
 Summary: Make system statistics
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://freshmeat.net/redir/libstatgrab/39879/url_tgz/%{name}-%{version}.tar.gz
+Source0: ftp://ftp.uk.i-scream.org/pub/i-scream/%{name}/%{name}-%{version}.tar.gz
 Patch0: %{name}.nochmod.patch
-License: GPL
+License: LGPLv2+ and GPLv2+
 Group: Monitoring
 Url: http://www.i-scream.org/libstatgrab/
 BuildRoot: %{_tmppath}/%{name}-buildroot
@@ -39,6 +39,7 @@ configuration file to use statgrab.
 %package -n %shortname-tools
 Summary: Tools from %name to monitoring the system
 Group: Monitoring
+License: GPLv2+
 
 %description -n %shortname-tools
 Libstatgrab is a library that provides cross platform access to statistics
@@ -61,6 +62,7 @@ configuration file to use statgrab.
 %package -n %libname
 Summary: The %name libraries
 Group: System/Libraries
+License: LGPLv2+
 Provides: %name = %version-%release
 
 %description -n %libname
@@ -84,6 +86,7 @@ configuration file to use statgrab.
 %package -n %libnamedevel
 Summary: The development files from %name libraries
 Group: Development/Other
+License: LGPLv2+
 Provides: %name-devel = %version-%release
 Requires: %libname = %version
 
@@ -110,23 +113,16 @@ configuration file to use statgrab.
 %patch0 -p0
 
 %build
-%configure
+%configure2_5x
 
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
+rm -rf %{buildroot}
 
 %files -n %shortname-tools
 %defattr(-,root,root)
@@ -147,5 +143,3 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/*.la
 %_includedir/*.h
 %_libdir/pkgconfig/%name.pc
-
-
