@@ -6,11 +6,12 @@
 Summary:	Make system statistics
 Name:		libstatgrab
 Version:	0.17
-Release:	8
+Release:	9
 License:	LGPLv2+
 Group:		Monitoring
 Url:		http://www.i-scream.org/libstatgrab/
 Source0:	ftp://ftp.uk.i-scream.org/pub/i-scream/%{name}/%{name}-%{version}.tar.gz
+Source100:	libstatgrab.rpmlintrc
 Patch0:		%{name}.nochmod.patch
 
 %description
