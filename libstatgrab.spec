@@ -2,6 +2,7 @@
 %define major	6
 %define libname	%mklibname %{sname} %major
 %define devname	%mklibname -d %{sname}
+%define _disable_lto 1
 
 Summary:	Make system statistics
 Name:		libstatgrab
