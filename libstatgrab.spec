@@ -1,5 +1,5 @@
 %define sname	statgrab
-%define major	6
+%define major	10
 %define libname	%mklibname %{sname} %major
 %define devname	%mklibname -d %{sname}
 %define _disable_lto 1
