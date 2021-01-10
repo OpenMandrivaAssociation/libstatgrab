@@ -6,14 +6,16 @@
 
 Summary:	Make system statistics
 Name:		libstatgrab
-Version:	0.17
-Release:	15
+Version:	0.92
+Release:	1
 License:	LGPLv2+
 Group:		Monitoring
 Url:		http://www.i-scream.org/libstatgrab/
 Source0:	ftp://ftp.uk.i-scream.org/pub/i-scream/%{name}/%{name}-%{version}.tar.gz
 Source100:	libstatgrab.rpmlintrc
 Patch0:		%{name}.nochmod.patch
+
+BuildRequires:	pkgconfig(ncurses)
 
 %description
 Libstatgrab is a library that provides cross platform access to statistics
@@ -75,15 +77,15 @@ This package includes the development files for %{name}.
 
 %prep
 %setup -q
-%patch0 -p0
+%autopatch -p0
 
 %build
-%configure2_5x --disable-static
+%configure --disable-static
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{sname}-tools
 %doc AUTHORS INSTALL README ChangeLog NEWS
@@ -99,4 +101,3 @@ This package includes the development files for %{name}.
 %{_includedir}/*.h
 %{_libdir}/pkgconfig/%{name}.pc
 %{_mandir}/man3/*
-
