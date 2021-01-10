@@ -87,16 +87,18 @@ This package includes the development files for %{name}.
 %install
 %make_install
 
+rm -rf %{buildroot}%{_docdir}/%{name}
+
 %files -n %{sname}-tools
 %doc AUTHORS INSTALL README ChangeLog NEWS
 %{_bindir}/*
 %{_mandir}/man1/*
 
 %files -n %{libname}
+%doc AUTHORS README ChangeLog NEWS PLATFORMS
 %{_libdir}/libstatgrab.so.%{major}*
 
 %files -n %{devname}
-%doc AUTHORS INSTALL README ChangeLog NEWS
 %{_libdir}/*.so
 %{_includedir}/*.h
 %{_libdir}/pkgconfig/%{name}.pc
