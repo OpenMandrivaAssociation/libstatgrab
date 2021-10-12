@@ -6,7 +6,7 @@
 
 Summary:	Make system statistics
 Name:		libstatgrab
-Version:	0.92
+Version:	0.92.1
 Release:	1
 License:	LGPLv2+
 Group:		Monitoring
