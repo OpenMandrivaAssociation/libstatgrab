@@ -7,7 +7,7 @@
 Summary:	Make system statistics
 Name:		libstatgrab
 Version:	0.92.1
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Monitoring
 Url:		http://www.i-scream.org/libstatgrab/
